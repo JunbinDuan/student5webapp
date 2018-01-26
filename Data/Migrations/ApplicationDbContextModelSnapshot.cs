@@ -177,6 +177,24 @@ namespace Student5WebApp.Data.Migrations
                     b.ToTable("AspNetUsers");
                 });
 
+            modelBuilder.Entity("Student5WebApp.Models.Inquiry", b =>
+                {
+                    b.Property<Guid>("InquiryId")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<Guid>("ContactId");
+
+                    b.Property<string>("Question");
+
+                    b.Property<string>("Response");
+
+                    b.Property<string>("UserId");
+
+                    b.HasKey("InquiryId");
+
+                    b.ToTable("Inquiry");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityRole")

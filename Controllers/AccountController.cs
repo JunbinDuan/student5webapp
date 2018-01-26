@@ -121,10 +121,13 @@ namespace Student5WebApp.Controllers
                 var result = await _userManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
+
+
                     Entity contact = new Entity("contact");
                     contact["firstname"] = user.FirstName;
                     contact["lastname"] = user.LastName;
                     contact["emailaddress1"] = user.Email;
+                    contact.Id = Guid.Parse(user.Id);
 
                     service.Create(contact);
 
